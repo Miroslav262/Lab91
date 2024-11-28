@@ -127,17 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="constants.h" />
-    <ClInclude Include="file_reader.h" />
-    <ClInclude Include="telephone_info.h" />
+    <Text Include="data.txt" />
+    <Text Include="data_info.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="file_reader.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data.txt" />
-    <Text Include="data_info.txt" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="file_reader.h" />
+    <ClInclude Include="telephone_info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
