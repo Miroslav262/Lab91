@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClInclude Include="constants.h" />
     <ClInclude Include="file_reader.h" />
+    <ClInclude Include="filter.h" />
     <ClInclude Include="telephone_info.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="file_reader.cpp" />
+    <ClCompile Include="filter.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
