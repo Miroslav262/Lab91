@@ -46,7 +46,41 @@ void qsort(info**arr, int L_point, int R_point, long long(*criteriy)(info*data))
   if(L - L_point>1) qsort(arr, L_point, center, criteriy);
   if(R_point-R>1) qsort(arr, R, R_point, criteriy);
 }
-
+void heaping(info**arr, int size, int element, long long(*criteriy)(info*data))
+{
+  int flag = -1;
+if(2*element+2 <= size-1) flag = 0;
+if(element==size-1) flag = 2;//куча завершена
+if(2*element+1 == size-1) flag = 1;//полукуча
+    if(flag == 0)
+    {
+      heaping(arr, size, 2*element+1, criteriy);
+      heaping(arr, size, 2*element+2, criteriy);
+      if(criteriy(arr[2*element+1])>=criteriy(arr[2*element+2]) && criteriy(arr[2*element+1])>criteriy(arr[element]))
+      {
+        swap_info(arr, 2*element+1, element);
+      }
+      else if(criteriy(arr[2*element+1])<criteriy(arr[2*element+2]) && criteriy(arr[2*element+2])>criteriy(arr[element]))
+      {
+        swap_info(arr, 2*element+2, element);
+      }
+    }
+    else if(flag == 1)
+    {
+      if(criteriy(arr[2*element+1])>criteriy(arr[element]))
+      {
+        swap_info(arr, 2*element+1, element);
+      }
+    }
+}
+void heapsort(info**arr, int size, long long(*criteriy)(info*data))
+{
+  for(int i = size-1; i>=0; i--)
+  {
+    heaping(arr, i+1, 0, criteriy);
+    swap_info(arr, 0, i);
+  }
+}
 
 /*
 1)Вывести все телефонные разговоры на мобильные телефоны.
