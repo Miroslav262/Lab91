@@ -14,7 +14,7 @@ time_ convert_time(char* str)
 	time_ arr;
 	arr.hours = atoi(str);
 	arr.minutes = atoi(str + sizeof(char) * 3);
-	arr.seconds = atoi(str + sizeof(char) * 3);
+	arr.seconds = atoi(str + sizeof(char) * 6);
 	return arr;
 }
 void reading(info* info_name[], const char* path, int& size)
@@ -37,8 +37,8 @@ void reading(info* info_name[], const char* path, int& size)
 			arr->time = convert_time(time);
 
 			char* lasting = new char[8];
-			file >> date_char;
-			arr->lasting = convert_time(date_char);
+			file >> lasting;
+			arr->lasting = convert_time(lasting);
 
 			file >> arr->rate;
 
@@ -51,5 +51,4 @@ void reading(info* info_name[], const char* path, int& size)
 	{
 		throw "Ошибка открытия файла";
 	}
-
 }

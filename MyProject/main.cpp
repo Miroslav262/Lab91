@@ -4,46 +4,56 @@
 #include "constants.h"
 #include "file_reader.h"
 #include "telephone_info.h"
+#include "filter.h"
+#include "sort.h"
 using namespace std;
-
 int main()
 {
+    /*
+1)Вывести все телефонные разговоры на мобильные телефоны.
+2)Вывести все телефонные разговоры в ноябре 2021 года.
+
+Методы сортировки:
+
+1)Пирамидальная сортировка (Heap sort)
+2)Быстрая сортировка (Quick sort)
+
+Критерии сортировки:
+
+1)По убыванию продолжительности разговора
+2)По возрастанию номера телефона
+*/
     cout << "Laboratory work #9. GIT\n";
     cout << "Variant #9. Library Subscription\n";
     cout << "Author: Markushevski Miraslau\n";
     cout << "Group: 24Ping1d\n";
-    info* information[MAX_FILE_ROWS_COUNT];
-    int size;
+    info** information= new info*[MAX_FILE_ROWS_COUNT];
+    info** result_info;
+    int size, result_size;
+    bool method, criteriy, filter_criteria;
+    cout << "Введите метод сортировки\n";
+    cout << "Доступные методы сортировки:\n";
+    cout << "0 - Пирамидальная сортировка (Heap sort)\n"; //metod = 0
+    cout << "1 - Быстрая сортировка (Quick sort)\n"; //metjod = 1
+    cin >> method;
+    cout << "\n";
+    cout << "Введите критерий сортировки\n";
+    cout << "Доступные критерии сортировки:\n";
+    cout << "0 - По убыванию продолжительности разговора\n"; //criteriy = 0, inverse = 0
+    cout << "1 - По возрастанию номера телефона\n"; //criteriy = 1, inverse = 1
+    cin >> criteriy;
+    cout << "Введите параметр сортировки\n";
+    cout << "Доступные параметры сортировки:\n";
+    cout << "0 - Вывести все телефонные разговоры на мобильные телефоны\n";//parametr = 0
+    cout << "1 - Вывести все телефонные разговоры в ноябре 2021 года\n";//parametr = 1
+    cin >> filter_criteria;
     try
     {
         reading(information, "data.txt", size);
-        cout << "***** Телефонный разговор *****\n\n";
-        for (int i = 0; i < size; i++)
-        {
-            /********** вывод номера **********/
-            cout << "Номер: ";
-            cout << information[i]->number << '\n';
-            /********** дата звонка **********/
-            cout << "Дата звонка: ";
-            cout << information[i]->date.day << "." << information[i]->date.month << "." << information[i]->date.year << '\n';
-            /********** время звонка **********/
-            cout << "Время звонка: ";
-            cout << information[i]->time.hours << ":" << information[i]->time.minutes << ":" << information[i]->time.seconds << '\n';
-            /********** продолжительность звонка **********/
-            cout << "Продолжительность звонка: ";
-            cout << information[i]->lasting.hours << ":" << information[i]->lasting.minutes << ":" << information[i]->lasting.seconds << '\n';
-            /********** тариф **********/
-            cout << "Тариф: ";
-            cout << information[i]->rate << '\n';
-            /********** стоимость минуты разговвора **********/
-            cout << "Стоимость минуты разговвора: ";
-            cout << information[i]->cost << '\n';
-            cout << '\n';
-        }
-        for (int i = 0; i < size; i++)
-        {
-            delete information[i];
-        }
+        result_info = sorting(information, size, method, criteriy, filter_criteria, result_size);
+        cout_info(result_info, result_size, criteriy);
+        delete []information;
+        delete []result_info;
     }
     catch (const char* error)
     {

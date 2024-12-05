@@ -1,4 +1,5 @@
 .vs/
 Debug/
 Release/
-/MyProject/data.txt
+.vscode/
+main/
