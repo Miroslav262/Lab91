@@ -1,7 +1,7 @@
 #include "filter.h"
 #include "telephone_info.h"
 #include <iostream>
-info** filter(info* array[], int size, bool (*check)(info* element), int& result_size)
+info** filter(info** array, int size, bool (*check)(info* element), int& result_size)
 {
 	info** result = new info * [size];
 	result_size = 0;
@@ -9,7 +9,8 @@ info** filter(info* array[], int size, bool (*check)(info* element), int& result
 	{
 		if (check(array[i]))
 		{
-			result[result_size++] = array[i];
+			result[result_size] = array[i];
+			result_size++;
 		}
 	}
 	return result;
@@ -17,7 +18,7 @@ info** filter(info* array[], int size, bool (*check)(info* element), int& result
 
 bool check_by_mobile(info* element)
 {
-	return(element->rate == "мобильный");
+	return(element->rate[2] == 'b');
 }
 
 bool check_by_date(info* element)
@@ -25,10 +26,6 @@ bool check_by_date(info* element)
 	return(element->date.year == 2021 && element->date.month == 11);
 }
 
-int main()
-{
-	std::cout << "ins work!";
-}
 /*
 1)Вывести все телефонные разговоры на мобильные телефоны.
 2)Вывести все телефонные разговоры в ноябре 2021 года.

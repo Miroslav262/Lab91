@@ -5,5 +5,4 @@
 date convert_date(char* str);
 time_ convert_time(char* str);
 void reading(info* info_name[], const char* path, int& size);
-
 #endif
