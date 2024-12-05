@@ -127,10 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="constants.h" />
-    <ClInclude Include="file_reader.h" />
     <ClInclude Include="filter.h" />
-    <ClInclude Include="telephone_info.h" />
     <Text Include="data.txt" />
     <Text Include="data_info.txt" />
   </ItemGroup>
@@ -138,10 +135,12 @@
     <ClCompile Include="file_reader.cpp" />
     <ClCompile Include="filter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constants.h" />
     <ClInclude Include="file_reader.h" />
+    <ClInclude Include="sort.h" />
     <ClInclude Include="telephone_info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
