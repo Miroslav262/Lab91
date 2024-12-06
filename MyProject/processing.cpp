@@ -1,6 +1,6 @@
 #include "processing.h"
 #include "sort.h"
-int process(info** array, int size)
+double process(info** array, int size)
 {
 	double sum_count = 0, sum_time = 0;
 	for (int i = 0; i<size; i++) 
