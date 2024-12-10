@@ -3,6 +3,6 @@
 
 #include "telephone_info.h"
 
-int process(info* array[], int size);
+double process(info** array, int size);
 
 #endif

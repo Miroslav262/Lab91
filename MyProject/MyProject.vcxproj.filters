@@ -27,10 +27,10 @@
     <ClInclude Include="filter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="sort.h">
+    <ClInclude Include="processing.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="processing.h">
+    <ClInclude Include="sort.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,10 +44,10 @@
     <ClCompile Include="filter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="sort.cpp">
+    <ClCompile Include="processing.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="processing.cpp">
+    <ClCompile Include="sort.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,5 +58,19 @@
     <Text Include="data_info.txt">
       <Filter>Исходные файлы</Filter>
     </Text>
+    <Text Include="Debug\MyProject.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Debug\file_reader.obj" />
+    <Object Include="Debug\filter.obj" />
+    <Object Include="Debug\main.obj" />
+    <Object Include="Debug\processing.obj" />
+    <Object Include="Debug\sort.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug\vc143.idb" />
+    <None Include="Debug\vc143.pdb" />
+    <None Include="Debug\MyProject.ilk" />
+    <None Include="Debug\MyProject.exe.recipe" />
   </ItemGroup>
 </Project>

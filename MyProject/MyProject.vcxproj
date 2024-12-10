@@ -108,6 +108,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>D:\Git\git2\Lab91\MyProject\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,6 +145,20 @@
   <ItemGroup>
     <Text Include="data.txt" />
     <Text Include="data_info.txt" />
+    <Text Include="Debug\MyProject.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Debug\file_reader.obj" />
+    <Object Include="Debug\filter.obj" />
+    <Object Include="Debug\main.obj" />
+    <Object Include="Debug\processing.obj" />
+    <Object Include="Debug\sort.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug\MyProject.exe.recipe" />
+    <None Include="Debug\MyProject.ilk" />
+    <None Include="Debug\vc143.idb" />
+    <None Include="Debug\vc143.pdb" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
